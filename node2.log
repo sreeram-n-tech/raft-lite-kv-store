@@ -1,0 +1,17 @@
+{"time":"2026-06-28T19:51:35.9445321+05:30","level":"INFO","msg":"Starting node storage","wal_path":"node2.wal"}
+{"time":"2026-06-28T19:51:35.9632095+05:30","level":"INFO","msg":"Starting gRPC server","server_node_id":"node2","addr":"localhost:50052"}
+{"time":"2026-06-28T19:51:35.9637356+05:30","level":"INFO","msg":"Starting HTTP server","server_node_id":"node2","addr":"localhost:8082"}
+{"time":"2026-06-28T19:51:36.1646765+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node2","id":"node1","addr":"localhost:50051"}
+{"time":"2026-06-28T19:51:36.1657357+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node2","id":"node3","addr":"localhost:50053"}
+{"time":"2026-06-28T19:51:36.2032709+05:30","level":"INFO","msg":"Role transition","server_node_id":"node2","node_id":"node2","from":"Follower","to":"Follower","term":1}
+{"time":"2026-06-28T19:51:36.2032709+05:30","level":"INFO","msg":"Vote granted","server_node_id":"node2","node_id":"node2","to":"node1","term":1}
+{"time":"2026-06-28T19:51:38.1976945+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node2","node_id":"node2","index":1,"command":"PUT:name:SreeRam"}
+{"time":"2026-06-28T19:51:38.2628697+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node2","node_id":"node2","index":2,"command":"PUT:role:Engineer"}
+{"time":"2026-06-28T19:51:38.3641615+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node2","node_id":"node2","index":3,"command":"PUT:status:Awesome"}
+{"time":"2026-06-28T19:51:40.1435471+05:30","level":"INFO","msg":"Role transition","server_node_id":"node2","node_id":"node2","from":"Follower","to":"Candidate","term":2}
+{"time":"2026-06-28T19:51:40.1435471+05:30","level":"INFO","msg":"Starting election","server_node_id":"node2","node_id":"node2","term":2}
+{"time":"2026-06-28T19:51:40.1442004+05:30","level":"INFO","msg":"Role transition","server_node_id":"node2","node_id":"node2","from":"Candidate","to":"Leader","term":2}
+{"time":"2026-06-28T19:51:40.1442004+05:30","level":"INFO","msg":"Election won","server_node_id":"node2","node_id":"node2","term":2,"votes":2}
+{"time":"2026-06-28T19:51:42.4297594+05:30","level":"INFO","msg":"Proposed command","server_node_id":"node2","node_id":"node2","index":4,"command":"PUT:project:RaftLite"}
+{"time":"2026-06-28T19:51:42.4297594+05:30","level":"INFO","msg":"Leader advanced commit index","server_node_id":"node2","node_id":"node2","commitIndex":4}
+{"time":"2026-06-28T19:51:42.4714347+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node2","node_id":"node2","index":4,"command":"PUT:project:RaftLite"}

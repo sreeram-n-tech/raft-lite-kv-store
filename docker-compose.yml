@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    container_name: kvnode1
+    command: >
+      --id=node1
+      --grpc-addr=0.0.0.0:50051
+      --http-addr=0.0.0.0:8081
+      --peers=node2=node2:50052,node3=node3:50053
+      --peer-https=node2=node2:8082,node3=node3:8083
+      --wal-path=/data/node1.wal
+    volumes:
+      - node1-data:/data
+    ports:
+      - "8081:8081"
+      - "50051:50051"
+
+  node2:
+    build: .
+    container_name: kvnode2
+    command: >
+      --id=node2
+      --grpc-addr=0.0.0.0:50052
+      --http-addr=0.0.0.0:8082
+      --peers=node1=node1:50051,node3=node3:50053
+      --peer-https=node1=node1:8081,node3=node3:8083
+      --wal-path=/data/node2.wal
+    volumes:
+      - node2-data:/data
+    ports:
+      - "8082:8082"
+      - "50052:50052"
+
+  node3:
+    build: .
+    container_name: kvnode3
+    command: >
+      --id=node3
+      --grpc-addr=0.0.0.0:50053
+      --http-addr=0.0.0.0:8083
+      --peers=node1=node1:50051,node2=node2:50052
+      --peer-https=node1=node1:8081,node2=node2:8082
+      --wal-path=/data/node3.wal
+    volumes:
+      - node3-data:/data
+    ports:
+      - "8083:8083"
+      - "50053:50053"
+
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:
