@@ -11,22 +11,18 @@ graph TD
     subgraph Client Space
         Client[kvctl CLI / curl]
     end
-
-    subgraph Node 1 (Leader)
+    subgraph "Node 1 (Leader)"
         HttpSrv1[HTTP Server] -->|Propose| RaftNode1[Raft Engine: Leader]
         RaftNode1 -->|Append & Apply| Storage1[(WAL & In-Memory Map)]
     end
-
-    subgraph Node 2 (Follower)
+    subgraph "Node 2 (Follower)"
         HttpSrv2[HTTP Server] -->|Redirect| Client
         RaftNode2[Raft Engine: Follower] -->|Append & Apply| Storage2[(WAL & In-Memory Map)]
     end
-
-    subgraph Node 3 (Follower)
+    subgraph "Node 3 (Follower)"
         HttpSrv3[HTTP Server] -->|Redirect| Client
         RaftNode3[Raft Engine: Follower] -->|Append & Apply| Storage3[(WAL & In-Memory Map)]
     end
-
     Client -- HTTP PUT/DELETE --> HttpSrv1
     Client -- HTTP GET ?stale=true --> HttpSrv2
     
