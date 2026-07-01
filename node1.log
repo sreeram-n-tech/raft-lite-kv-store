@@ -1,10 +1,9 @@
-{"time":"2026-06-28T19:51:42.5178397+05:30","level":"INFO","msg":"Starting node storage","wal_path":"node1.wal"}
-{"time":"2026-06-28T19:51:42.5362736+05:30","level":"INFO","msg":"Starting gRPC server","server_node_id":"node1","addr":"localhost:50051"}
-{"time":"2026-06-28T19:51:42.5367812+05:30","level":"INFO","msg":"Starting HTTP server","server_node_id":"node1","addr":"localhost:8081"}
-{"time":"2026-06-28T19:51:42.696927+05:30","level":"INFO","msg":"Role transition","server_node_id":"node1","node_id":"node1","from":"Follower","to":"Candidate","term":1}
-{"time":"2026-06-28T19:51:42.696927+05:30","level":"INFO","msg":"Starting election","server_node_id":"node1","node_id":"node1","term":1}
-{"time":"2026-06-28T19:51:42.696927+05:30","level":"INFO","msg":"Election finished, did not win majority (split vote)","server_node_id":"node1","node_id":"node1","term":1,"votes":1}
-{"time":"2026-06-28T19:51:42.7369529+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node1","id":"node2","addr":"localhost:50052"}
-{"time":"2026-06-28T19:51:42.7369529+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node1","id":"node3","addr":"localhost:50053"}
-{"time":"2026-06-28T19:51:42.8148085+05:30","level":"INFO","msg":"Role transition","server_node_id":"node1","node_id":"node1","from":"Candidate","to":"Follower","term":2}
-{"time":"2026-06-28T19:51:42.8160229+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node1","node_id":"node1","index":4,"command":"PUT:project:RaftLite"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Starting node storage", "wal_path": "node1.wal"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Starting gRPC server", "server_node_id": "node1", "addr": "localhost:50051"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Connected to peer", "server_node_id": "node1", "id": "node2", "addr": "localhost:50052"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Connected to peer", "server_node_id": "node1", "id": "node3", "addr": "localhost:50053"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Starting HTTP server", "server_node_id": "node1", "addr": "localhost:8081"}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Role transition", "server_node_id": "node1", "node_id": "node1", "from": "Follower", "to": "Candidate", "term": 1}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Starting election", "server_node_id": "node1", "node_id": "node1", "term": 1}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Role transition", "server_node_id": "node1", "node_id": "node1", "from": "Candidate", "to": "Follower", "term": 2}
+{"time": "2026-07-01T05:43:59Z", "level": "INFO", "msg": "Committed log entry applied to state machine", "server_node_id": "node1", "node_id": "node1", "index": 4, "command": "PUT:project:RaftLite"}

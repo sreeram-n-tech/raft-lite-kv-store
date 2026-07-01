@@ -1,6 +1,6 @@
-# Mini Distributed Key-Value Store with Raft-Lite Replication
+# Mini Distributed Key-Value Store with Raft-Lite Replication (Python)
 
-This project is a production-quality, portfolio-grade distributed key-value store in Go. It implements Raft-lite consensus (leader election and log replication), a custom append-only Write-Ahead Log (WAL) with `fsync` persistence, a gRPC transport layer for inter-node communication, and a client-facing HTTP/JSON API. It proves that a simplified consensus implementation can successfully survive a killed leader (automatic failover) and recover gracefully from arbitrary node crashes (durability via startup WAL replay) without any data loss for committed writes.
+This project is a production-quality, portfolio-grade distributed key-value store in **Python**. It implements Raft-lite consensus (leader election and log replication), a custom append-only Write-Ahead Log (WAL) with `fsync` persistence, a gRPC transport layer for inter-node communication, and a client-facing HTTP/JSON API. It proves that a simplified consensus implementation can successfully survive a killed leader (automatic failover) and recover gracefully from arbitrary node crashes (durability via startup WAL replay) without any data loss for committed writes.
 
 ---
 
@@ -39,11 +39,11 @@ graph TD
 
 ## How to Run
 
-### Option A: Local Goroutines (Integration Testing)
-The entire cluster lifecycle (elections, replication, failover, node stops, restarts, and catch-ups) is verified via standard Go integration tests without requiring Docker.
-Run the tests (including the race detector) with:
+### Option A: Local Threads (Integration Testing)
+The entire cluster lifecycle (elections, replication, failover, node stops, restarts, and catch-ups) is verified via standard integration tests using Python's standard `unittest` framework.
+Run the tests with:
 ```bash
-go test -race -v ./...
+python -m unittest discover -s internal -p "test_*.py"
 ```
 
 ### Option B: Docker Compose (3-Node Cluster)
@@ -56,38 +56,44 @@ This spawns:
 - **Node 2**: HTTP `8082`, gRPC `50052`
 - **Node 3**: HTTP `8083`, gRPC `50053`
 
+### Option C: Run the Demo Script
+To run a fully scripted failover and restart durability demo, execute:
+```bash
+bash ./scripts/demo.sh
+```
+
 ---
 
 ## How to Use `kvctl`
 
-`kvctl` is a lightweight command-line tool designed to query the cluster. It automatically intercepts HTTP `307 Temporary Redirect` codes from followers and retries queries against the elected leader.
+`kvctl` is a command-line tool designed to query the cluster. It automatically intercepts HTTP `307 Temporary Redirect` codes from followers and retries queries against the elected leader.
 
 ### PUT a Key-Value Pair
 ```bash
-./kvctl -addr localhost:8081 PUT name SreeRam
+python cmd/kvctl/main.py --addr localhost:8081 PUT name SreeRam
 ```
 *Note:* If `localhost:8081` is a follower, it returns a redirect pointing to the leader. `kvctl` intercepts this redirect and retries the PUT request against the leader.
 
 ### GET a Key-Value Pair (Linearizable read via Leader)
 ```bash
-./kvctl -addr localhost:8081 GET name
+python cmd/kvctl/main.py --addr localhost:8081 GET name
 ```
 *Note:* If you contact a follower, it redirects you to the leader to ensure you get the most up-to-date committed value.
 
 ### GET a Key-Value Pair (Stale read via Follower)
 ```bash
-./kvctl -addr localhost:8082 -stale GET name
+python cmd/kvctl/main.py --addr localhost:8082 --stale GET name
 ```
-*Note:* Appending the `-stale` option adds a `?stale=true` parameter to the request. The follower will bypass the leader check and return its current local state immediately.
+*Note:* Appending the `--stale` option adds a `?stale=true` parameter to the request. The follower will bypass the leader check and return its current local state immediately.
 
 ### DELETE a Key
 ```bash
-./kvctl -addr localhost:8081 DELETE name
+python cmd/kvctl/main.py --addr localhost:8081 DELETE name
 ```
 
 ### STATUS of a Node
 ```bash
-./kvctl -addr localhost:8081 STATUS
+python cmd/kvctl/main.py --addr localhost:8081 STATUS
 ```
 Returns a JSON summary indicating the node's current role (`Leader`, `Follower`, or `Candidate`), the current term, the commit index, and the log length.
 

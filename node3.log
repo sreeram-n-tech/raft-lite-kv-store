@@ -1,18 +1,16 @@
-{"time":"2026-06-28T19:51:35.9395503+05:30","level":"INFO","msg":"Starting node storage","wal_path":"node3.wal"}
-{"time":"2026-06-28T19:51:35.9615679+05:30","level":"INFO","msg":"Starting gRPC server","server_node_id":"node3","addr":"localhost:50053"}
-{"time":"2026-06-28T19:51:35.9621086+05:30","level":"INFO","msg":"Starting HTTP server","server_node_id":"node3","addr":"localhost:8083"}
-{"time":"2026-06-28T19:51:36.1618168+05:30","level":"INFO","msg":"Role transition","server_node_id":"node3","node_id":"node3","from":"Follower","to":"Candidate","term":1}
-{"time":"2026-06-28T19:51:36.1618168+05:30","level":"INFO","msg":"Starting election","server_node_id":"node3","node_id":"node3","term":1}
-{"time":"2026-06-28T19:51:36.1618168+05:30","level":"INFO","msg":"Election finished, did not win majority (split vote)","server_node_id":"node3","node_id":"node3","term":1,"votes":1}
-{"time":"2026-06-28T19:51:36.1628701+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node3","id":"node1","addr":"localhost:50051"}
-{"time":"2026-06-28T19:51:36.1633989+05:30","level":"INFO","msg":"Connected to peer","server_node_id":"node3","id":"node2","addr":"localhost:50052"}
-{"time":"2026-06-28T19:51:36.2037931+05:30","level":"INFO","msg":"Role transition","server_node_id":"node3","node_id":"node3","from":"Candidate","to":"Follower","term":1}
-{"time":"2026-06-28T19:51:38.1971081+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node3","node_id":"node3","index":1,"command":"PUT:name:SreeRam"}
-{"time":"2026-06-28T19:51:38.2634051+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node3","node_id":"node3","index":2,"command":"PUT:role:Engineer"}
-{"time":"2026-06-28T19:51:38.3635899+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node3","node_id":"node3","index":3,"command":"PUT:status:Awesome"}
-{"time":"2026-06-28T19:51:40.1435471+05:30","level":"INFO","msg":"Role transition","server_node_id":"node3","node_id":"node3","from":"Follower","to":"Follower","term":2}
-{"time":"2026-06-28T19:51:40.1442004+05:30","level":"INFO","msg":"Vote granted","server_node_id":"node3","node_id":"node3","to":"node2","term":2}
-{"time":"2026-06-28T19:51:42.4727225+05:30","level":"INFO","msg":"Committed log entry applied to state machine","server_node_id":"node3","node_id":"node3","index":4,"command":"PUT:project:RaftLite"}
-{"time":"2026-06-28T19:51:47.0220728+05:30","level":"INFO","msg":"Role transition","server_node_id":"node3","node_id":"node3","from":"Follower","to":"Candidate","term":3}
-{"time":"2026-06-28T19:51:47.0220728+05:30","level":"INFO","msg":"Starting election","server_node_id":"node3","node_id":"node3","term":3}
-{"time":"2026-06-28T19:51:47.0283698+05:30","level":"INFO","msg":"Election finished, did not win majority (split vote)","server_node_id":"node3","node_id":"node3","term":3,"votes":1}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Starting node storage", "wal_path": "node3.wal"}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Starting gRPC server", "server_node_id": "node3", "addr": "localhost:50053"}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Connected to peer", "server_node_id": "node3", "id": "node1", "addr": "localhost:50051"}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Connected to peer", "server_node_id": "node3", "id": "node2", "addr": "localhost:50052"}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Starting HTTP server", "server_node_id": "node3", "addr": "localhost:8083"}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Role transition", "server_node_id": "node3", "node_id": "node3", "from": "Follower", "to": "Follower", "term": 1}
+{"time": "2026-07-01T05:43:11Z", "level": "INFO", "msg": "Vote granted", "server_node_id": "node3", "node_id": "node3", "to": "node1", "term": 1}
+{"time": "2026-07-01T05:43:26Z", "level": "INFO", "msg": "Committed log entry applied to state machine", "server_node_id": "node3", "node_id": "node3", "index": 1, "command": "PUT:name:SreeRam"}
+{"time": "2026-07-01T05:43:28Z", "level": "INFO", "msg": "Committed log entry applied to state machine", "server_node_id": "node3", "node_id": "node3", "index": 2, "command": "PUT:role:Engineer"}
+{"time": "2026-07-01T05:43:31Z", "level": "INFO", "msg": "Committed log entry applied to state machine", "server_node_id": "node3", "node_id": "node3", "index": 3, "command": "PUT:status:Awesome"}
+{"time": "2026-07-01T05:43:50Z", "level": "INFO", "msg": "Role transition", "server_node_id": "node3", "node_id": "node3", "from": "Follower", "to": "Follower", "term": 2}
+{"time": "2026-07-01T05:43:50Z", "level": "INFO", "msg": "Vote granted", "server_node_id": "node3", "node_id": "node3", "to": "node2", "term": 2}
+{"time": "2026-07-01T05:43:58Z", "level": "INFO", "msg": "Committed log entry applied to state machine", "server_node_id": "node3", "node_id": "node3", "index": 4, "command": "PUT:project:RaftLite"}
+{"time": "2026-07-01T05:44:16Z", "level": "INFO", "msg": "Role transition", "server_node_id": "node3", "node_id": "node3", "from": "Follower", "to": "Candidate", "term": 3}
+{"time": "2026-07-01T05:44:16Z", "level": "INFO", "msg": "Starting election", "server_node_id": "node3", "node_id": "node3", "term": 3}
+{"time": "2026-07-01T05:44:16Z", "level": "INFO", "msg": "Election finished, did not win majority (split vote)", "server_node_id": "node3", "node_id": "node3", "term": 3, "votes": 1}

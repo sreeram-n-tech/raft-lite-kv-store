@@ -1,12 +1,12 @@
-FROM golang:1.26-alpine AS builder
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN go build -o kvnode ./cmd/kvnode
+FROM python:3.14-slim
 
-FROM alpine:latest
-RUN apk add --no-cache curl bash
 WORKDIR /app
-COPY --from=builder /app/kvnode .
-ENTRYPOINT ["./kvnode"]
+
+# Install dependencies
+RUN pip install --no-cache-dir grpcio requests
+
+# Copy source code
+COPY . .
+
+# Run the node
+ENTRYPOINT ["python", "-m", "cmd.kvnode.main"]
